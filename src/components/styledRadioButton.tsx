@@ -10,16 +10,21 @@ import {
 import { makeStyles } from '@mui/styles';
 import { capitalizeFirstLetter } from '../utils/helper';
 
-interface Props {
-  options: Array<string>
+interface Option {
+  name: string;
+  unit: string;
 };
 
-const StyledRadioButton = (props: Props) => {
-  const { options } = props;
+interface Props {
+  options: Option[],
+  unit: string;
+  setUnit: (unitInput:string) => void;
+};
+
+const StyledRadioButton = ({ options, unit, setUnit}: Props) => {
   const styles = styledRadioButtonStyles();
   const controlProps = (item: string) => ({
-    //checked: selectedValue === item,
-    //onChange: handleChange,
+    checked: unit === item,
     value: item,
     name: 'temperature-radio-button-demo',
     inputProps: { 'aria-label': item },
@@ -29,10 +34,11 @@ const StyledRadioButton = (props: Props) => {
       row
       aria-labelledby='temperature-radio-button'
       name='temperature'
+      onChange={(event) => setUnit(event.target.value)}
     >
       {options.map((item, index) => (
-        <Grid className={styles.grid}>
-          <FormControlLabel value={item} control={<Radio  {...controlProps(item)} sx={RadioStyles} />} label={capitalizeFirstLetter(item)} />
+        <Grid className={styles.grid} key={index}>
+          <FormControlLabel value={item} control={<Radio  {...controlProps(item.unit)} sx={RadioStyles} />} label={capitalizeFirstLetter(item.name)} />
         </Grid>
       ))}
     </RadioGroup>
