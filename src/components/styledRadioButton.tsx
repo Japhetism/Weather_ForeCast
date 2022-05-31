@@ -28,7 +28,7 @@ const StyledRadioButton = (props: Props) => {
     <RadioGroup
       row
       aria-labelledby='temperature-radio-button'
-      name="temperature"
+      name='temperature'
     >
       {options.map((item, index) => (
         <Grid className={styles.grid}>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Carousel from "react-simply-carousel";
+import Carousel from 'react-simply-carousel';
 
 const Slider = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -10,7 +10,7 @@ const Slider = () => {
         activeSlideIndex={activeSlide}
         activeSlideProps={{
           style: {
-            background: "blue"
+            background: 'blue'
           }
         }}
         onRequestChange={setActiveSlide}
@@ -29,7 +29,7 @@ const Slider = () => {
             textAlign: 'center',
             width: 30,
           },
-          children: <span style={{color: "#000000", fontSize: 40}}>{`>`}</span>,
+          children: <span style={{color: '#000000', fontSize: 40}}>{`>`}</span>,
         }}
         backwardBtnProps={{
           //here you can also pass className, or any other button element attributes
@@ -46,7 +46,7 @@ const Slider = () => {
             textAlign: 'center',
             width: 30,
           },
-          children: <span style={{color: "#000000", fontSize: 40}}>{`<`}</span>,
+          children: <span style={{color: '#000000', fontSize: 40}}>{`<`}</span>,
         }}
         itemsToShow={3}
         speed={400}
@@ -54,13 +54,13 @@ const Slider = () => {
         {Array.from({ length: 10 }).map((item, index) => (
           <div
             style={{
-              background: "red",
+              background: 'red',
               width: 300,
               height: 300,
-              border: "30px solid white",
-              textAlign: "center",
-              lineHeight: "240px",
-              boxSizing: "border-box"
+              border: '30px solid white',
+              textAlign: 'center',
+              lineHeight: '240px',
+              boxSizing: 'border-box'
             }}
             key={index}
           >

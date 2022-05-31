@@ -26,7 +26,7 @@ const WeatherScreen = () => {
         </Grid>
       </Grid>
       <Grid>
-        <Typography>Tunis</Typography>
+        <Typography variant='h4'>Tunis</Typography>
       </Grid>
       <Grid>
         <Slider />
@@ -46,19 +46,20 @@ const weatherScreenStyles = makeStyles((theme: Theme) => ({
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '0 40',
+    paddingTop: 40,
+    paddingBottom: 40,
   },
   searchInputContainer: {
-    marginTop: "40px",
-    marginBottom: "40px",
+    marginTop: '40px',
+    marginBottom: '40px',
   },
   searchInputSection: {
-    width: "60%",
-    margin: "auto",
+    width: '60%',
+    margin: 'auto',
   },
   chartSection: {
-    width: "50%",
-    margin: "auto",
-  }
+    width: '50%',
+    margin: 'auto',
+  },
 }))
 
