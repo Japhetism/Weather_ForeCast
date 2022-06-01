@@ -1,10 +1,6 @@
 import { WeatherAction, WeatherActionType } from '../actionTypes/weather';
 
-export interface Weather {
-  id: string,
-  name: string,
-  min_size: string,
-}
+export interface Weather {}
 
 interface State {
   weather: Weather[],
@@ -21,7 +17,6 @@ const initialState = {
   loading: false,
   error: null
 }
-
 
 export const weatherReducer = (state = initialState, action: WeatherAction):State => {
   switch(action.type) {

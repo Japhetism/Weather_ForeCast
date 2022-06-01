@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Button,
   FormControl,
@@ -21,7 +21,7 @@ const SearchInput = ({ placeholder, searchTerm, title, setSearchTerm ,handleSear
   const styles = searchInputStyles();
   return <Grid>
     <FormControl className={styles.formControlInput}>
-      <OutlinedInput placeholder={placeholder} className={styles.input} onChange={(event) => setSearchTerm(event.target.value)} />
+      <OutlinedInput value={searchTerm} placeholder={placeholder} className={styles.input} onChange={(event) => setSearchTerm(event.target.value)} />
     </FormControl>
     <FormControl className={styles.formControlButton}>
       <Button variant="contained" disabled={!inputValidation(searchTerm)} onClick={() => handleSearch()}>{title}</Button>
