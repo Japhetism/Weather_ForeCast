@@ -14,7 +14,7 @@ import BarChart from '../../components/barChart';
 import { useTypedSelector } from '../../hooks/useTypeSelector';
 import fetchWeather from '../../services/weather';
 import { temperatureOptions } from '../../fixtures/temperatureOptions';
-import { getTempUnitSymbol } from '../../utils/helper';
+import { getTempUnitSymbol, getBarChartData } from '../../utils/helper';
 
 const WeatherScreen = () => {
   const [searchTerm, setSearchTerm] = useState('Tunis');
@@ -30,7 +30,6 @@ const WeatherScreen = () => {
   useEffect(() => {
     handleSearch();
   }, []);
-
   return <Layout>
     <Grid className={styles.weatherSection}>
       <Grid>
@@ -51,10 +50,10 @@ const WeatherScreen = () => {
         <Typography variant='h4'>{searchTerm}</Typography>
       </Grid>}
       {weather.length && <Grid>
-        <Slider data={weather} unit={getTempUnitSymbol(unit)}/>
+        <Slider data={weather} unit={getTempUnitSymbol(unit)} startSlide={weather.length}/>
       </Grid>}
       <Grid className={styles.chartSection}>
-        <BarChart />
+        <BarChart data={getBarChartData(weather)} title="Temperature" />
       </Grid>
     </Grid>
   </Layout>

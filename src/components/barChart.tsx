@@ -10,6 +10,11 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
+interface Props {
+  data: any;
+  title: string;
+}
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -32,21 +37,18 @@ export const options = {
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: labels.map(() => 50),
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-  ],
-};
-
-const BarChart = () => {
-  return <Bar options={options} data={data} />;
+const BarChart = ({ data, title }: Props) => {
+  const chartData = {
+    labels: data.labels,
+    datasets: [
+      {
+        label: title,
+        data: data.values,
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+    ],
+  };
+  return <Bar options={options} data={chartData} />;
 };
 
 export default BarChart;

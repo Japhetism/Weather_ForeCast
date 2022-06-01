@@ -17,3 +17,12 @@ export const getTempUnitSymbol = (tempUnit:string) => {
   let tempObj = temperatureOptions.find(item => item.unit === tempUnit);
   return tempObj?.symbol;
 }
+
+export const getBarChartData = (weather:Array<object>) => {
+  let labels = weather.map((item:any) => item.date)
+  let values = weather.map((item:any) => item.main.temp)
+  return {
+    labels,
+    values
+  }
+}

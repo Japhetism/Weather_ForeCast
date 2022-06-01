@@ -4,20 +4,16 @@ import Carousel from 'react-simply-carousel';
 interface Props {
   data: any;
   unit: string|undefined;
+  startSlide: number;
 }
 
-const Slider = ({ data, unit }: Props) => {
-  const [activeSlide, setActiveSlide] = useState(0);
+const Slider = ({ data, unit, startSlide }: Props) => {
+  const [activeSlide, setActiveSlide] = useState(startSlide);
   return (
     <div>
       <Carousel
         updateOnItemClick
         activeSlideIndex={activeSlide}
-        // activeSlideProps={{
-        //   style: {
-        //     background: 'blue'
-        //   }
-        // }}
         onRequestChange={setActiveSlide}
         forwardBtnProps={{
           //here you can also pass className, or any other button element attributes
